@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <title>FPGA-Docker Manager</title>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="css/style.css">
+    <script src="lib/angular.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/controllers/controller_results.js"></script>
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+
+<body role="document" ng-app="myApp">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-info mb-3">
+    <div class="container">
+        <a class="navbar-brand" href="#">FPGA-Docker Manager</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+                 <li class="nav-item active">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                 <li class="nav-item active">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container theme-showcase" role="main" ng-controller="ResultsController">
+    <div class="card mb-3">
+        <div class="card-header">FPGA Status</div>
+        <div class="card-body">
+            <div>Last update : {{status_update_time}}</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">PCI Slot</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Holder<br/>(PID)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="fpga in fpga_status">
+                        <th scope="row">{{fpga.index}}</th>
+                        <td>{{fpga.name}}</td>
+                        <td>{{fpga.pci_slot}}</td>
+                        <td>{{fpga.status}}</td>
+                        <td>{{fpga.holder}}</td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header">Container Status</div>
+        <div class="card-body">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
