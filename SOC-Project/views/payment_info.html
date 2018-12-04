@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Restaurant Reservations</title>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/simple-sidebar.css">
+
+    <script src="../public/lib/angular.js"></script>
+    <script src="../public/js/index.js"></script>
+    <script src="../public/js/controllers/payment_info.js"></script>
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</head>
+
+<body ng-app="myApp">
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        User's Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="payment_info.html">Payment Options</a>
+                </li>
+                <li>
+                    <a href="reservation_info.html">My Reservations</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" ng-controller="PayInfoController">
+            <div class="container-fluid">
+                <h1>[Customer's Name]</h1>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+                <br>
+                <br>
+                <h3>Your Payment Options</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">Credit or Debit Cards</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="nameOnCard"><strong>Name on card</strong></label>
+                                            <input type="name" class="form-control" id="nameOnCard" aria-describedby="nameHelp" placeholder="">
+                                        </div> 
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="nameOnCard"><strong>Card Number</strong></label>
+                                            <input type="name" class="form-control" id="nameOnCard" aria-describedby="nameHelp" placeholder="">
+                                        </div> 
+                                    </form>
+                                </div>
+                            </div>
+                            <label for="month"><strong>Expiration Date</strong></label>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <div class="form-group">
+                                        <select class="form-control" id="Select1">
+                                            <option ng-repeat="m in months">{{m}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="form-group">
+                                        <select class="form-control" id="Select2">
+                                            <option ng-repeat="y in expYear">{{y}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-1">
+                                    <button type="button" class="btn btn-primary">Add your card</button>                             
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="../public/images/payment_options.jpg">
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

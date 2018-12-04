@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Restaurant Reservations</title>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/simple-sidebar.css">
+
+    <script src="../public/lib/angular.js"></script>
+    <script src="../public/js/index.js"></script>
+    <script src="../public/js/controllers/reservation_info.js"></script>
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</head>
+
+<body ng-app="myApp">
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        User's Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="payment_info.html">Payment Options</a>
+                </li>
+                <li>
+                    <a href="reservation_info.html">My Reservations</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" ng-controller="ResInfoController">
+            <div class="container-fluid">
+                <h1>[Customer's Name]</h1>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+                <br>
+                <br>
+            </div>
+            <h4 class="card-title">Your Reservations</h4>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Date</th>
+                                  <th scope="col">Restaurant</th>
+                                  <th scope="col">Price</th>
+                                  <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in order_list">
+                                  <th scope="row">{{item.no}}</th>
+                                  <td>{{item.date}}</td>
+                                  <td>{{item.name}}</td>
+                                  <td>{{item.price}}</td>
+                                  <td>{{item.status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
