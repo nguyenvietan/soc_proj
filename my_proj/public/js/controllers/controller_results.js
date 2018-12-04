@@ -1,7 +1,7 @@
 app.controller('ResultsController', ['$scope', '$http', function($scope, $http){
     
     $scope.img_src_1 = [
-                            {"name": "Gymkhana", "src":"./images/rest1.jpg"}, 
+                            {"name": "Gymkhana", "src":"./images/rest1.jpg",}, 
                             {"name": "Portland", "src":"./images/rest2.jpg"}, 
                             {"name": "Gun Power", "src":"./images/rest3.jpg"}, 
                             {"name": "Hawksmoor Spitalfields", "src":"./images/rest4.jpg"}
