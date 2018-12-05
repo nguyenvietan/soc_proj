@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+    <title>Restaurant Reservations</title>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="../public/css/style.css">
+    <script src="../public/lib/angular.js"></script>
+    <script src="../public/js/index.js"></script>
+    <script src="../public/js/controllers/manager_top.js"></script>
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- Datepicker -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+
+    <!-- Google Maps API -->
+    <!-- <script src="js/controllers/gymkhana.js"></script> -->
+
+
+<body role="document" ng-app="myApp">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a href="#" class="navbar-brand">Manager's Page</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive"></div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>           
+        </div>
+    </nav>
+    <br><br><br>
+
+    <!-- Page contents -->
+    <div class="container theme-showcase" role="main" ng-controller="ManagerTopController">
+        <div class="card-header">
+            <p><strong>Date:</strong> December 6, 2018</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>List of Reservations</h2>
+                        <br>
+
+                        <div class="accordion" id="accordionExample">
+                            <div class="card" >
+                                <div class="card-header">
+                                    <div class="row">
+                                        <div class="col-lg-3"><h4>Time</h4></div>
+                                        <div class="col-lg-3"><h4>People</h4></div>
+                                        <div class="col-lg-3"><h4>Reservations</h4> </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="card" ng-repeat="item in resList">
+                                <div class="card-header" id={{item.head1}}>
+                                    <h5 class="mb-0">
+                                        <div class="row">
+                                            <div class="col-lg-3 font-weight-normal">{{item.time}}</div>
+                                            <div class="col-lg-3 font-weight-normal">{{item.people}}</div>
+                                            <div class="col-lg-3 font-weight-normal text-center">{{item.res}}</div>
+                                            <div class="col-lg-3 font-weight-normal">
+                                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target={{item.col1s}} aria-expanded="true" aria-controls={{item.col1}}>Details</button>
+                                            </div>
+                                        </div>
+                                    </h5>
+                                </div>
+                                <div id={{item.col1}} class="collapse show" aria-labelledby={{item.head1}} data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-2"></div>
+                                            <div class="col-lg-10">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                          <th scope="col">#</th>
+                                                          <th scope="col">Name</th>
+                                                          <th scope="col">People</th>
+                                                          <th scope="col">Price</th>
+                                                          <th scope="col">Show</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="x in item.detail">
+                                                          <th scope="row">{{x.no}}</th>
+                                                          <td>{{x.name}}</td>
+                                                          <td>{{x.people}}</td>
+                                                          <td>{{x.price}}</td>
+                                                          <td><a href="#" ng-click="showResInfo(x.resInfo)">Show</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>     <!-- accordion-->                   
+
+
+                    </div> 
+                </div>
+            </div> <!-- col-lg-8 -->
+
+            <div class="col-lg-4">
+                <br><br><br><br>
+                <div class="card">
+                    <h4 class="card-header text-center">Reservation Details</h4>
+                    <div class="card-body">
+                        <p><strong>Time: </strong>{{resInfo.time}}</p>
+                        <p><strong>Name: </strong>{{resInfo.name}}</p>
+                        <p><strong>People: </strong>{{resInfo.people}}</p>
+                        <p><strong>Foods: </strong>{{resInfo.foods}}</p>
+                        <p><strong>Drinks: </strong>{{resInfo.drinks}}</p>
+                        <h5><strong>Total: </strong>{{resInfo.total}}</h5>
+                        <button type="button" class="btn btn-success">Send Payment Request</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+
+    </div>
+
+
+  </body>
+</html>
