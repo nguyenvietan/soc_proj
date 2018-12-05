@@ -6,9 +6,9 @@ app.controller('ManagerTopController', ['$scope', '$http', function($scope, $htt
 
     };
     
-    const timeSlot = ["12.00 pm", "12.30 pm", "1.00 pm"];
-    const nTotalPeople = [20, 33, 25];
-    const nReservations = [4, 5, 3];
+    const timeSlot = ["12.00 pm", "12.30 pm", "1.00 pm", "1.30 pm", "2.00 pm", "2.30 pm", "3.00 pm", "3.30 pm" ];
+    const nTotalPeople = [20, 33, 25, 30, 15, 22, 16, 21];
+    const nReservations = [4, 5, 3, 5, 7, 2, 5, 6];
 
 // Reservation Info samples
 
@@ -36,6 +36,27 @@ app.controller('ManagerTopController', ['$scope', '$http', function($scope, $htt
 							{no: 3, name: "Mr. G", people: 7, price: "$2700", resInfo: resInfo3},
 							];
 
+    const detail_01_30pm = [{no: 1, name: "Mr. E", people: 15, price: "$9800", resInfo: resInfo1},
+							{no: 2, name: "Mr. F", people: 3, price: "$1300", resInfo: resInfo2},
+							{no: 3, name: "Mr. G", people: 7, price: "$2700", resInfo: resInfo3},
+							];
+
+    const detail_02_00pm = [{no: 1, name: "Mr. E", people: 15, price: "$9800", resInfo: resInfo1},
+							{no: 2, name: "Mr. F", people: 3, price: "$1300", resInfo: resInfo2},
+							{no: 3, name: "Mr. G", people: 7, price: "$2700", resInfo: resInfo3},
+							];
+    const detail_02_30pm = [{no: 1, name: "Mr. E", people: 15, price: "$9800", resInfo: resInfo1},
+							{no: 2, name: "Mr. F", people: 3, price: "$1300", resInfo: resInfo2},
+							{no: 3, name: "Mr. G", people: 7, price: "$2700", resInfo: resInfo3},
+							];
+    const detail_03_00pm = [{no: 1, name: "Mr. E", people: 15, price: "$9800", resInfo: resInfo1},
+							{no: 2, name: "Mr. F", people: 3, price: "$1300", resInfo: resInfo2},
+							{no: 3, name: "Mr. G", people: 7, price: "$2700", resInfo: resInfo3},
+							];
+    const detail_03_30pm = [{no: 1, name: "Mr. E", people: 15, price: "$9800", resInfo: resInfo1},
+							{no: 2, name: "Mr. F", people: 3, price: "$1300", resInfo: resInfo2},
+							{no: 3, name: "Mr. G", people: 7, price: "$2700", resInfo: resInfo3},
+							];
 
     $scope.resList = [
 	    					{col1: "collapse1", col1s: "#collapse1", head1:"heading1", 
@@ -43,7 +64,18 @@ app.controller('ManagerTopController', ['$scope', '$http', function($scope, $htt
 	    					{col1: "collapse2", col1s: "#collapse2", head2:"heading2", 
 	    									time: timeSlot[1], people: nTotalPeople[1], res: nReservations[1], detail: detail_12_30pm},
 	    					{col1: "collapse3", col1s: "#collapse3", head3:"heading3", 
-	    									time: timeSlot[2], people: nTotalPeople[2], res: nReservations[2], detail: detail_01_00pm}
+	    									time: timeSlot[2], people: nTotalPeople[2], res: nReservations[2], detail: detail_01_00pm},
+	    					{col1: "collapse4", col1s: "#collapse4", head3:"heading4", 
+	    									time: timeSlot[3], people: nTotalPeople[2], res: nReservations[3], detail: detail_01_30pm},
+	    					{col1: "collapse5", col1s: "#collapse5", head3:"heading5", 
+	    									time: timeSlot[4], people: nTotalPeople[2], res: nReservations[4], detail: detail_02_00pm},
+	    					{col1: "collapse6", col1s: "#collapse6", head3:"heading6", 
+	    									time: timeSlot[5], people: nTotalPeople[2], res: nReservations[5], detail: detail_02_30pm},
+	    					{col1: "collapse7", col1s: "#collapse7", head3:"heading7", 
+	    									time: timeSlot[6], people: nTotalPeople[2], res: nReservations[6], detail: detail_03_00pm},
+	    					{col1: "collapse8", col1s: "#collapse8", head3:"heading8", 
+	    									time: timeSlot[7], people: nTotalPeople[2], res: nReservations[7], detail: detail_03_30pm},
+
     					];
 
 
